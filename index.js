@@ -140,10 +140,11 @@ async function renderWeather(){
     } finally{
         const weatherResponse = await getWeather(latitude, longitude);
         const weatherData = weatherResponse.data;
-        console.log(weatherData.list);
+        // console.log(weatherData.list);
 
         // 다음 시간
         const nextHour = getNextHour();
+        // console.log(nextHour);
         // 5일간의 날씨
         const weatherLIst = weatherData.list.reduce((acc, cur)=>{
             if(cur.dt_txt.indexOf(nextHour) > 0){
@@ -160,8 +161,8 @@ async function renderWeather(){
         // 현재 날씨
         const modalButton = document.querySelector(".modal-button");
         modalButton.style.backgroundImage = `url(${matchIcon(weatherLIst[0].weather[0].main)})`;
-        console.log(matchIcon(weatherLIst[0].weather[0].main));
-        console.log(weatherLIst[0].weather[0].main);
+        // console.log(matchIcon(weatherLIst[0].weather[0].main));
+        // console.log(weatherLIst[0].weather[0].main);
     }
 }
 
